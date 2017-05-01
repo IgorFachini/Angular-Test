@@ -1,34 +1,45 @@
-<div class="jumbotron">
-	<h1 class="text-center">angular1x</h1>
-</div>
+<h1>{{titulo}}</h1>
 
-<p ng-show="mensagem.length" class="alert alert-info">
-	{{mensagem}}
-</p>
 
-<div class="row">
-	<div class="col-md-12">
-		<form>
-			<div class="input-group">
-				<span class="input-group-btn">
-					<a href="/fotos/new" class="btn btn-primary" type="button">
-						Nova foto
-					</a>
-				</span>
-				<input class="form-control" placeholder="filtrar pelo título da foto" 
-					ng-model="filtro" ng-model-options="{ debounce: 500 }">
-		</form>
-	</div> <!-- fim col-md-12 -->
-</div> <!-- fim row -->
+<p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+<form  name="formulario" ng-submit="submeter()">
+	<div class="row">
+		<div class="col-md-2">
+			<input name="nome" class="form-control" type="text" ng-model="app.nome" placeholder="nome"/ required>
+		</div>
+		<div class="col-sm-2">
+			<input name="apelido" class="form-control" type="text" ng-model="app.apelido" placeholder="apelido"/ >
+		</div>
+		<div class="col-md-2">
+			<select name="generos" class="form-control" ng-model="app.genero" ng-options="value for value in generos">	</select>
+		</div>
+		<div class="col-md-2">
+			<input name="idade" class="form-control" type="number"  ng-model="app.idade" placeholder="idade"/ required>
+		</div>
+		<div class="col-md-2">
+			<button class="btn btn-success" type="submit">+</button>
+		</div>
+	</div>
+</form>
 
-<div class="row">
-    <meu-painel class="col-md-2 painel-animado" ng-repeat="foto in fotos | filter: filtro" titulo="{{foto.titulo}}">
-        <minha-foto url="{{foto.url}}" alt="{{foto.titulo}}"></minha-foto>
-
-		<a class="btn btn-primary btn-block" href="/fotos/edit/{{foto._id}}">
-			Editar
-		</a>
-		<meu-botao-perigo nome="Remover" acao="remover(foto)">Remover</meu-botao-perigo>
-    </meu-painel>
-</div>
-<meus-titulos></meus-titulos>
+<table class="table table-striped">
+	<thead>
+		<th>Nome</th>
+		<th>Apelido</th>
+		<th>Genero</th>
+		<th>Idade</th>
+		<th>#</th>
+	</thead>
+	<tbody>
+		<tr ng-repeat="value in DB">
+			<td>{{value.nome}}</td>
+			<td>{{value.apelido}}</td>
+			<td>{{value.genero}}</td>
+			<td>{{value.idade}}</td>
+			<td>
+				<button class="btn btn-info" type="button" ng-click="edit(value)">Editar</button>
+				<deletar nome="Deletar" acao="delete(value)">Deletar</deletar>
+			</td>
+		</tr>
+	</tbody>
+</table>

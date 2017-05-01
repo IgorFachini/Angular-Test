@@ -1,8 +1,11 @@
-angular.module('angular1x', ['minhasDiretivas','ngAnimate', 'ngRoute', 'ngResource', 'meusServicos'])
-	.config(function($routeProvider, $locationProvider) {
-
+console.log("main js");
+var app = angular.module('angular1x', ["ngRoute","firebase","minhasDiretivas"])
+	.config(function($routeProvider) {
+		$routeProvider.when('/', {
+			templateUrl: 'partials/principal.html',
+			controller: 'MainController'
+		}).otherwise({ redirectTo: '/'});;
 		// $locationProvider.html5Mode(true);
 
-		// $routeProvider.otherwise({redirectTo: '/index.html'});
-
+		console.log("dentro do .config de .main js");
 	});
