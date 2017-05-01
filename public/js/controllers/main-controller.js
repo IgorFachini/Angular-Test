@@ -33,9 +33,5 @@ console.log("dentro do MainController");
   $scope.delete=function(item){
     $scope.DB.$remove(item)
     $scope.mensagem = "Deletado";
-    toastr["success"]("My name is Inigo Montoya. You killed my father. Prepare to die!");
   }
-
-
-
 });
