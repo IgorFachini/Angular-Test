@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';//syntaxe do ES6, Transforma essa classe em component, procura dentro node_modules
+import { Component, Inject } from '@angular/core';//syntaxe do ES6, Transforma essa classe em component, procura dentro node_modules
+import { Http } from '@angular/http'//Sabe fazer requisições ajax
 
 @Component({//Decorator, simplesmente procura a tag <app></app> e insere o conteudo de templateUrl
   moduleId: module.id,
@@ -15,4 +16,17 @@ import { Component } from '@angular/core';//syntaxe do ES6, Transforma essa clas
 
 //class pra saber angular, tenque saber ES6,
 // Seguir convenção, nome da classe semelhante a nome do arquivo, app.component = AppComponent
-export class AppComponent {}
+export class AppComponent {
+
+  fotos: Object[] = [];
+  constructor(http: Http){
+
+    http.get('v1/fotos')
+    .map(res => res.json())
+    .subscribe(fotos => {
+      this.fotos =fotos;
+    }, erro => console.log(erro));
+
+  }
+
+}
