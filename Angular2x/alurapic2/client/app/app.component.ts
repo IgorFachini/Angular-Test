@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';//syntaxe do ES6, Transforma essa classe em component, procura dentro node_modules
 
 @Component({//Decorator, simplesmente procura a tag <app></app> e insere o conteudo de templateUrl
+  moduleId: module.id,
   selector: 'app',
-  templateUrl: './app/app.component.html'
+  templateUrl: './app.component.html'
 })
 //Explicação da anotação acima, javascript não existe ainda Decorator ou anotações, para isso precisamos usar uma liguagem que suporte isso.
 //Quem precessa um decorator é um typeScript (ts) criada pela Microsoft, ela tem tudo oque o ES5 e ES6 tem, e coloca algumas coisas encima, e uma dessas coisas

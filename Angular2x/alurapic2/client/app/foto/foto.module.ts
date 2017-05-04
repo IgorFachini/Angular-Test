@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { FotoComponent } from './foto.component';
 
 @NgModule({
-  declarations: [ FotoComponent ]
+  declarations: [ FotoComponent ],
+  exports: [ FotoComponent ]//Permite que outros modulos me utilizem
 })
-class FotoModule {}
+export class FotoModule {}
 //tes
