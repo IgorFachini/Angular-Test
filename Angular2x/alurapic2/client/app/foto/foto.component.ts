@@ -1,12 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
     moduleId: module.id,
     selector: 'foto',
     templateUrl: './foto.component.html',
-    styleUrls: ['./foto.component.css']
-    //Por padrão, o angular usa ViewEncapsulation com shadow DOM (Emulated),
-    //para que aja compatibilidade em todos os navegadores
+    styleUrls: ['./foto.component.css'], 
+    encapsulation: ViewEncapsulation.Emulated
 })
 export class FotoComponent {
 
