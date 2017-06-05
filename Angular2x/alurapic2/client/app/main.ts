@@ -1,4 +1,4 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';//Usado para carregar o primeiro modulo da aplicação
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app.module';
 const platform = platformBrowserDynamic();
-platform.bootstrapModule(AppModule);//Usa platform para botar AppModule do arquivo app.module.ts
+platform.bootstrapModule(AppModule);
