@@ -6,7 +6,12 @@ import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css']
 })
-export class ModalComponent implements OnInit {
+
+/**
+  * @description ModalComponent
+  * Component principal do modal.
+  */
+export class ModalComponent {
 
   @Input() title = '';
   @Input() message = '';
@@ -17,6 +22,12 @@ export class ModalComponent implements OnInit {
 
   constructor() { }
 
+
+
+  /**
+    * @description
+    * Se algo de nome fecha o modal e manda um emiter para (closeWithOk) com o nome escrito.
+    */
   ok(name: string) {
     name = name.trim();
     if (!name) { return; }
@@ -25,20 +36,20 @@ export class ModalComponent implements OnInit {
   }
 
 
-  // open modal
+  /**
+  * @description
+  * Trocar o valor da variavel booleanda que da permissao pro modal abrir.
+  */
   open(): void {
     this.modalShow = true;
   }
 
-  // close modal
+  /**
+  * @description
+  * Trocar o valor da variavel booleanda que da permissao pro modal fechar.
+  */
   close(): void {
     this.modalShow = false;
   }
-
-  ngOnInit() {
-
-
-  }
-
 
 }
