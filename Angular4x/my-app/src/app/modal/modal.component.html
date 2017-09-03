@@ -1,0 +1,15 @@
+<button (click)="open()" id="myBtn">Open Modal</button>
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal" [style.display]="modalShow ? 'block' : 'none'">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <h1>{{title}}</h1>
+    <span (click)="close()" class="close">&times;</span>
+    <label>{{this.message}}:</label> <input #heroName />
+    <button (click)="ok(heroName.value); heroName.value=''">Ok</button>
+  </div>
+
+</div>

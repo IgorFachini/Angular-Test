@@ -6,5 +6,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 }) // componente raiz
 export class AppComponent {
-  title = 'My First Angular App';
+  title = 'Create a hero';
+  message: 'Hero name';
+
+
+  modalResponse(response) {
+    alert(response);
+  }
+
+  onOpen($event) {
+    console.log('onOpen' + $event);
+
+  }
+
+  onClose($event) {
+    console.log('onClose');
+
+  }
 }

@@ -15,6 +15,11 @@
   </li>
   <li>
     <h2><a target="_blank" href="https://blog.angular.io//">Angular blog</a></h2>
+    <zippy (open)="onOpen($event)" (close)="onClose($event)"></zippy>
+
+
+    <!-- MODAL  -->
+    <modal (closeWithOk)="this.modalResponse($event)" [title]="title" [message]="this.message" > </modal>
   </li>
 </ul>
 
